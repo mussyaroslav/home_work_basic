@@ -1,12 +1,15 @@
 package reader
 
-import "encoding/json"
-import "fmt"
-import "io"
-import "os"
-import "github.com/mussyaroslav/home_work_basic/hw02_fix_app/types"
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
 
-func ReadJSON(filePath string, limit int) ([]types.Employee, error) {
+	"github.com/mussyaroslav/home_work_basic/hw02_fix_app/types"
+)
+
+func ReadJSON(filePath string) ([]types.Employee, error) {
 	f, err := os.Open(filePath)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
@@ -20,7 +23,7 @@ func ReadJSON(filePath string, limit int) ([]types.Employee, error) {
 
 	var data []types.Employee
 
-	err = json.Unmarshal(bytes, &data)
+	_ = json.Unmarshal(bytes, &data)
 
 	res := data
 
