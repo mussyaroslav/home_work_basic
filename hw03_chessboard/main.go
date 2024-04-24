@@ -6,7 +6,7 @@ func main() {
 	var size int
 	fmt.Print("Введите размер шахматной доски:")
 	_, err := fmt.Scanln(&size)
-	if err != nil || size < 1 || size == 0 {
+	if err != nil || size < 1 {
 		fmt.Println("Введите число больше нуля!")
 	}
 	for i := 0; i < size; i++ {
