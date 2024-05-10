@@ -61,21 +61,29 @@ func (b *Book) SetRate(rate float64) {
 	b.rate = rate
 }
 
+type ComparisonMather int
+
+const (
+	ByYear ComparisonMather = iota
+	BySize
+	ByRate
+)
+
 type BookComparator struct {
-	comparison int
+	comparison ComparisonMather
 }
 
-func NewBookComparator(comparison int) *BookComparator {
+func NewBookComparator(comparison ComparisonMather) *BookComparator {
 	return &BookComparator{comparison: comparison}
 }
 
 func (bc *BookComparator) Compare(book1, book2 *Book) bool {
 	switch bc.comparison {
-	case 0:
+	case ByYear:
 		return book1.Year() > book2.Year()
-	case 1:
+	case BySize:
 		return book1.Size() > book2.Size()
-	case 2:
+	case ByRate:
 		return book1.Rate() > book2.Rate()
 	default:
 		return false
