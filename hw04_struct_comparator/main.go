@@ -108,12 +108,12 @@ func main() {
 		4.41,
 	}
 
-	comparator := NewBookComparator(0)
+	comparator := NewBookComparator(ByYear)
 	fmt.Println("Сравнение по году:", comparator.Compare(&book1, &book2))
 
-	comparator = NewBookComparator(1)
+	comparator = NewBookComparator(BySize)
 	fmt.Println("Сравнение по страницам:", comparator.Compare(&book1, &book2))
 
-	comparator = NewBookComparator(2)
+	comparator = NewBookComparator(ByRate)
 	fmt.Println("Сравнение по рейтингу:", comparator.Compare(&book1, &book2))
 }
