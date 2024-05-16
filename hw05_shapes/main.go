@@ -48,25 +48,26 @@ func calculateArea(s Shape) (any, error) {
 }
 
 func main() {
-	circle := circle{radius: 5}
-	rectangle := rectangle{width: 10, height: 5}
-	triangle := triangle{base: 8, height: 6}
+	circleFirst := circle{radius: 5}
+	rectangleFirst := rectangle{width: 10, height: 5}
+	triangleFirst := triangle{base: 8, height: 6}
 
-	areaCircle, err := calculateArea(circle)
+	areaCircle, err := calculateArea(circleFirst)
 	if err != nil {
 		fmt.Println(err)
 	}
-	areaRectangle, err := calculateArea(rectangle)
+	areaRectangle, err := calculateArea(rectangleFirst)
 	if err != nil {
 		fmt.Println(err)
 	}
-	areaTriangle, err := calculateArea(triangle)
+	areaTriangle, err := calculateArea(triangleFirst)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Printf("Круг: радиус %.2f. Площадь: %.2f\n", circle.radius, areaCircle)
+	fmt.Printf("Круг: радиус %.2f. Площадь: %.2f\n", circleFirst.radius, areaCircle)
 	fmt.Printf("Прямоугольник: ширина %.2f, высота %.2f. Площадь: %.2f\n",
-		rectangle.width, rectangle.height, areaRectangle)
-	fmt.Printf("Треугольник: основание %.2f, высота %.2f. Площадь: %.2f\n", triangle.base, triangle.height, areaTriangle)
+		rectangleFirst.width, rectangleFirst.height, areaRectangle)
+	fmt.Printf("Треугольник: основание %.2f, высота %.2f. Площадь: %.2f\n",
+		triangleFirst.base, triangleFirst.height, areaTriangle)
 }
