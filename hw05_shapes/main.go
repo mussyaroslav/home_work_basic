@@ -10,47 +10,47 @@ type Shape interface {
 	area() (float64, error)
 }
 
-type Circle struct {
+type circle struct {
 	radius float64
 }
 
-type Rectangle struct {
+type rectangle struct {
 	width, height float64
 }
 
-type Triangle struct {
+type triangle struct {
 	base, height float64
 }
 
-func (c Circle) area() (float64, error) {
+func (c circle) area() (float64, error) {
 	if c.radius < 0 {
 		return 0, errors.New("радиус не может быть отрицательным")
 	}
 	return math.Pi * c.radius * c.radius, nil
 }
 
-func (r Rectangle) area() (float64, error) {
+func (r rectangle) area() (float64, error) {
 	if r.width < 0 || r.height < 0 {
 		return 0, errors.New("ширина и высота не могут быть отрицательными")
 	}
 	return r.width * r.height, nil
 }
 
-func (t Triangle) area() (float64, error) {
+func (t triangle) area() (float64, error) {
 	if t.base < 0 || t.height < 0 {
 		return 0, errors.New("основание и высота не могут быть отрицательными")
 	}
 	return t.base * t.height / 2, nil
 }
 
-func calculateArea(s Shape) (float64, error) {
+func calculateArea(s Shape) (any, error) {
 	return s.area()
 }
 
 func main() {
-	circle := Circle{radius: 5}
-	rectangle := Rectangle{width: 10, height: 5}
-	triangle := Triangle{base: 8, height: 6}
+	circle := circle{radius: 5}
+	rectangle := rectangle{width: 10, height: 5}
+	triangle := triangle{base: 8, height: 6}
 
 	areaCircle, err := calculateArea(circle)
 	if err != nil {
