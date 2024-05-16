@@ -43,8 +43,11 @@ func (t triangle) area() (float64, error) {
 	return t.base * t.height / 2, nil
 }
 
-func calculateArea(s Shape) (any, error) {
-	return s.area()
+func calculateArea(s any) (float64, error) {
+	if shape, ok := s.(Shape); ok {
+		return shape.area() // не понимаю почему не нужно nil ошибку выдает
+	}
+	return 0.0, errors.New("не реализует интерфейс Shape")
 }
 
 func main() {
