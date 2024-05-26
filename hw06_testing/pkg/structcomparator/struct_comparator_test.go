@@ -26,15 +26,15 @@ func TestBookComparator(t *testing.T) {
 		name       string
 		book1      *Book
 		book2      *Book
-		comparison func(a, b *Book) bool
+		comparison ComparisonMather
 		expected   bool
 	}{
-		{"ПоГоду - Книга1 новее", book1, book2, ByYear, false},
-		{"ПоГоду - Книга2 новее", book2, book1, ByYear, true},
-		{"ПоСтраницам - Книга1 больше", book1, book2, BySize, false},
-		{"ПоСтраницам - Книга2 больше", book2, book1, BySize, true},
-		{"ПоРейтингу - Книга1 выше", book1, book2, ByRate, true},
-		{"ПоРейтингу - Книга2 выше", book2, book1, ByRate, false},
+		{"По Году - Книга1 новее", book1, book2, ByYear, false},
+		{"По Году - Книга2 новее", book2, book1, ByYear, true},
+		{"По Страницам - Книга1 больше", book1, book2, BySize, false},
+		{"По Страницам - Книга2 больше", book2, book1, BySize, true},
+		{"По Рейтингу - Книга1 выше", book1, book2, ByRate, true},
+		{"По Рейтингу - Книга2 выше", book2, book1, ByRate, false},
 	}
 
 	for _, tt := range tests {

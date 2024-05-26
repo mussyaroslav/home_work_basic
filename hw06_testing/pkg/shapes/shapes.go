@@ -42,6 +42,9 @@ func (t Triangle) Area() (float64, error) {
 	return t.Base * t.Height / 2, nil
 }
 
-func CalculateArea(s Shape) (float64, error) {
-	return s.Area()
+func CalculateArea(s any) (float64, error) {
+	if shape, ok := s.(Shape); ok {
+		return shape.Area() // не понимаю почему не нужно nil ошибку выдает
+	}
+	return 0.0, errors.New("не реализует интерфейс Shape")
 }
