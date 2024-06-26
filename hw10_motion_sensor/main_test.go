@@ -48,7 +48,7 @@ func TestDataProcessor(t *testing.T) {
 	}
 }
 
-func TestDisplayAverages(t *testing.T) {
+func TestDisplayAverages(_ *testing.T) {
 	averages := make(chan float32, 2)
 	averages <- 5.5
 	averages <- 15.5
