@@ -1,0 +1,8 @@
+INFO: Application started
+DEBUG: Debugging information
+WARN: Warning message
+ERROR: An error occurred
+INFO: User logged in
+DEBUG: User data retrieved
+ERROR: Failed to save data
+INFO: User logged out
