@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"  # Измените на "8080:8081", если нужно
+    depends_on:
+      - postgres-otus
+    environment:
+      DB_USER: "postgres"
+      DB_PASSWORD: "1234"  # Убедитесь, что пароль совпадает
+      DB_NAME: "postgres-otus"
+      DB_HOST: "postgres-otus"
+      DB_PORT: 5432
+  postgres-otus:
+    image: postgres:16.2-alpine
+    container_name: postgres-otus
+    environment:
+      POSTGRES_DB: "postgres-otus"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1234"  # Убедитесь, что пароль совпадает
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
